@@ -58,17 +58,18 @@ void Route::inputFromConsole(){
 
 void Route::change() {
     std::cout << "input the start:" << std::endl;
+    //getchar();
     getline(std::cin, startOfRoute);
     std::cout << "input the end:" << std::endl;
     getline(std::cin, endOfRoute);
     std::cout << "input num: " << std::endl;
-    std::cin>> numOfRoute;
+    std::cin >> numOfRoute;
 }
 
-bool Route::operator>(Route& route) {
+bool Route::operator > (Route& route) const {
     return numOfRoute > route.numOfRoute;
 }
-bool Route::operator<(Route &route) {
+bool Route::operator < (Route &route) const {
     return numOfRoute < route.numOfRoute;
 }
 

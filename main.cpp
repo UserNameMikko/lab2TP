@@ -64,7 +64,8 @@ void searchObjects(List<Route>& routes) {
         std::string routeName;
         std::cout << "input start, end or number of route:" << std::endl;
         getchar();
-        std::cin >> routeName;
+        //std::cin >> routeName;
+        std::getline(std::cin, routeName);
         for (int i = 0; i < routes.getSize(); i++)
             if (routes[i].getStartDestination() == routeName || routes[i].getEndDestination() == routeName
             || std::to_string(routes[i].getNumOfRoute()) == routeName){

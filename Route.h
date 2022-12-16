@@ -34,8 +34,8 @@ public:
             "Number: " << obj.getNumOfRoute()  << std::endl;
         return os;
     }
-    bool operator > (Route& route);
-    bool operator < (Route &route);
+    bool operator > (Route& route) const;
+    bool operator < (Route &route) const;
 };
 
 typedef struct Instance {
