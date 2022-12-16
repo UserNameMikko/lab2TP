@@ -3,7 +3,7 @@
 //
 #include <fstream>
 #include <utility>
-#include "helper.h"
+#include <string>
 #include "Route.h"
 
 Route::Route() {
@@ -58,7 +58,7 @@ void Route::inputFromConsole(){
 
 void Route::change() {
     std::cout << "input the start:" << std::endl;
-    //getchar();
+    getchar();
     getline(std::cin, startOfRoute);
     std::cout << "input the end:" << std::endl;
     getline(std::cin, endOfRoute);
@@ -72,36 +72,3 @@ bool Route::operator > (Route& route) const {
 bool Route::operator < (Route &route) const {
     return numOfRoute < route.numOfRoute;
 }
-
-/*
-void Route::show() {
-    std::cout << *this << std::endl;
-}*//*
-void Route::saving() {
-    std::ofstream file_out;
-    std::string init_file = "data.txt";
-    file_out.open(init_file, std::ios_base::app);
-    if (!file_out)
-        throw "Error opening!";
-    else {
-        file_out << std::endl << startOfRoute << std::endl << endOfRoute << std::endl
-                 << numOfRoute << std::endl;
-        file_out.close();
-    }
-}
-void Route::rewrite() {
-    std::cout << "-------------------------------" << std::endl;
-    std::cout << "Change data of Route\n"
-                 "input:\n"
-                 "start of route-> end of route -> num of route"<<std::endl<<
-              "if your text variables contains >1 word use '_' for current work of program"<< std::endl;
-    std::cin>>this->startOfRoute>>this->endOfRoute>>this->numOfRoute;
-}
-
-void Route::redact(std::string start, std::string end, int num) {
-    this->startOfRoute = std::move(start);
-    this->endOfRoute = std::move(end);
-    this->numOfRoute = num;
-}
-
-*/

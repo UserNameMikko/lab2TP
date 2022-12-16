@@ -1,14 +1,12 @@
 #include "List.h"
 #include "Route.h"
-#include "helper.h"
 #include "SecondTask.h"
 #include <fstream>
 #include <sstream>
 
 void print (List<Route>&routes){
-    for (int i = 0; i < routes.getSize();i++){
+    for (int i = 0; i < routes.getSize();i++)
         std::cout<<routes[i];
-    }
 }
 void sorting(List<Route>& routes) {
     Route tmp;
@@ -21,10 +19,8 @@ void sorting(List<Route>& routes) {
             }
         }
     std::cout<< "new list:"<< std::endl ;
-    for (int i = 0; i < routes.getSize(); i++) {
-        std::cout<<routes[i]<<std::endl;
-
-    }
+    for (int i = 0; i < routes.getSize(); i++)
+        std::cout << routes[i] << std::endl;
 }
 void addObject(List<Route>& routes) {
     Route route;
@@ -35,26 +31,30 @@ void addObject(List<Route>& routes) {
 
 void changeObject(List<Route>& routes) {
     if (routes.getSize() > 0) {
+        int index;
         print(routes);
         std::cout << "input the index of objects which will be changed:" << std::endl;
-        routes[safeInput(1, routes.getSize()) - 1].change();
+        std::cin >> index;
+        //routes[safeInput(1, routes.getSize()) - 1].change();
+        routes[index].change();
         sorting(routes);
     }
     else
-        std::cout << "list is empty";
+        std::cout << "list is empty" << std::endl;
 
 }
 
 void deleteObject(List<Route>& routes) {
     if (routes.getSize() > 0) {
-
+        int index;
         print(routes);
         std::cout << "input the index of object which will be deleted:" << std::endl;
-        routes -= safeInput(1, routes.getSize()) - 1;
+        std::cin >> index;
+        routes -= index;//safeInput(1, routes.getSize()) - 1;
         sorting(routes);
     }
     else
-        std::cout << "list is empty";
+        std::cout << "list is empty" << std::endl;
 
 }
 void deleteAll(List<Route>& routes) {
@@ -71,13 +71,13 @@ void printLast(List<Route>& routes) {
         std::cout << "list is empty" << std::endl;
     else {
         std::cout << "last element:";
-        std::cout<<routes[routes.getSize() - 1];
+        std::cout << routes[routes.getSize() - 1];
     }
 }
 
 void searchObjects(List<Route>& routes) {
     if (routes.getSize() == 0)
-        std::cout << "list is empty\n";
+        std::cout << "list is empty" << std::endl;
     else {
         bool isPrint = false;
         std::string routeName;
@@ -114,7 +114,6 @@ int firstProgramMenu() {
     } catch (...) {
         std::cout << "incorrect input" << std::endl;
     }
-
 }
 
 // here is process of working of the first program
@@ -148,6 +147,8 @@ void firstProgram() {
                     std::cout << "list is empty";
                 else
                     for (int i = 0; i < list.getSize(); ++i) {
+                        std::cout << '#';
+                        std::cout << i + 1 << std::endl;
                         std::cout << list[i] << std::endl;
                     }
                 break;
@@ -158,7 +159,6 @@ void firstProgram() {
                 break;
         }
     } while (ch != 8);
-
 }
 int main() {
 
