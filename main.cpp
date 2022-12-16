@@ -1,18 +1,36 @@
 #include "List.h"
 #include "Route.h"
 #include "helper.h"
+#include "SecondTask.h"
 #include <fstream>
+#include <sstream>
 
 void print (List<Route>&routes){
     for (int i = 0; i < routes.getSize();i++){
         std::cout<<routes[i];
     }
 }
+void sorting(List<Route>& routes) {
+    Route tmp;
+    for (int i = 1; i < routes.getSize(); i++)
+        for (int j = 0; j < routes.getSize() - i; j++){
+            if(routes[j].getNumOfRoute() > routes[j + 1].getNumOfRoute()) {
+                tmp = routes[j + 1];
+                routes[j + 1] = routes[j];
+                routes[j] = tmp;
+            }
+        }
+    std::cout<< "new list:"<< std::endl ;
+    for (int i = 0; i < routes.getSize(); i++) {
+        std::cout<<routes[i]<<std::endl;
+
+    }
+}
 void addObject(List<Route>& routes) {
     Route route;
     route.inputFromConsole();
     routes += route;
-    //routes.sorting();
+    sorting(routes);
 }
 
 void changeObject(List<Route>& routes) {
@@ -20,10 +38,11 @@ void changeObject(List<Route>& routes) {
         print(routes);
         std::cout << "input the index of objects which will be changed:" << std::endl;
         routes[safeInput(1, routes.getSize()) - 1].change();
+        sorting(routes);
     }
     else
         std::cout << "list is empty";
-    //routes.sorting();
+
 }
 
 void deleteObject(List<Route>& routes) {
@@ -32,10 +51,11 @@ void deleteObject(List<Route>& routes) {
         print(routes);
         std::cout << "input the index of object which will be deleted:" << std::endl;
         routes -= safeInput(1, routes.getSize()) - 1;
+        sorting(routes);
     }
     else
         std::cout << "list is empty";
-    //routes.sorting();
+
 }
 void deleteAll(List<Route>& routes) {
     if (routes.getSize() > 0) {
@@ -44,7 +64,6 @@ void deleteAll(List<Route>& routes) {
     }
     else
         std::cout << "list is empty" << std::endl;
-    //5routes.sorting();
 }
 
 void printLast(List<Route>& routes) {
@@ -64,7 +83,6 @@ void searchObjects(List<Route>& routes) {
         std::string routeName;
         std::cout << "input start, end or number of route:" << std::endl;
         getchar();
-        //std::cin >> routeName;
         std::getline(std::cin, routeName);
         for (int i = 0; i < routes.getSize(); i++)
             if (routes[i].getStartDestination() == routeName || routes[i].getEndDestination() == routeName
@@ -142,13 +160,6 @@ void firstProgram() {
     } while (ch != 8);
 
 }
-void secondProgram() {
-    std::cout<< "empty";
-}
-
-
-
-
 int main() {
 
     std::cout << "select a type of program:" << std::endl

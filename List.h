@@ -5,7 +5,9 @@
 #ifndef LAB2_LIST_H
 #define LAB2_LIST_H
 #pragma once
+#include <iostream>
 #include<string>
+#include "Route.h"
 
 
 template<class T>
@@ -86,22 +88,14 @@ List<T>& List<T>::operator=(const List<T>& myArray){
     return *this;
 }
 
-template<class T>
+/*template<class T>
 void List<T>::sorting() {
+    List<T> routes;
+    List<Route> r;
     for (int i = 1; i < size; i++)
-        for (int j = 0; j < size - i; j++)
-            if (data[j] > data[j + 1]) {
-                T tmp  = data[j];
-                data[j] = data[j + 1];
-                data[j + 1] = tmp;
-            }
-            /*if (&data[j] > &data[j + 1]) {
-                T tmp  = &data[j];
-                &data[j] = & data[j + 1];
-                &data[j + 1] = tmp;
-            }*/
-                //std::swap(&data[j], &data[j + 1]);
-}
+        for (int j = 0; j < size - i; j++) {
+        }
+}*/
 
 template<class T>
 void List<T>::clear() {
