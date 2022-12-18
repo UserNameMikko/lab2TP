@@ -88,6 +88,7 @@ List<T>& List<T>::operator=(const List<T>& myArray){
     return *this;
 }
 
+
 /*template<class T>
 void List<T>::sorting() {
     List<T> routes;
