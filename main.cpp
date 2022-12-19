@@ -1,5 +1,7 @@
 #include "FirstTask.h"
 #include "SecondTask.h"
+#include <iostream>
+
 int main() {
 
     std::cout << "select a type of program:" << std::endl
